@@ -8,6 +8,8 @@
 
 #include "rhoban_random/tools.h"
 
+#include <rhoban_utils/util.h>
+
 namespace rhoban_unsorted
 {
 
@@ -266,6 +268,10 @@ class ParticleFilter {
     /// Sample a subset of particles from the whole set
     /// if new_nb_particles is equivalent to current number of particles: do Nothing
     void resize(size_t new_nb_particles) {
+      // If there is no particle, resize should never be called (not adapted
+      if (nbParticles() == 0) {
+        throw std::logic_error(DEBUG_INFO + " requires at least one particle");
+      }
       // If number of particles is equivalent, do not change
       if (new_nb_particles == nbParticles()) return;
       // If the number of particles has been reduced, choose distinct particles
