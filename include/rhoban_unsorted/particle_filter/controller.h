@@ -5,31 +5,33 @@
 
 namespace rhoban_unsorted
 {
-
-//A Control class can control only one type of Particles
+// A Control class can control only one type of Particles
 template <class P>
-class Controller {
+class Controller
+{
 public:
   Controller()
-    {
-      engine = rhoban_random::getRandomEngine();
-    }
+  {
+    engine = rhoban_random::getRandomEngine();
+  }
   virtual ~Controller(){};
 
   /* Apply the predicted move over elapsedTime to the specified particle */
-  virtual void move(P & p, double elapsedTime) {
-    (void) p; (void) elapsedTime;// Avoiding warnings
+  virtual void move(P& p, double elapsedTime)
+  {
+    (void)p;
+    (void)elapsedTime;  // Avoiding warnings
   };
 
   /* Apply an exploration move over elapsedTime to the specified particle */
-  virtual void explore(P & p, double elapsedTime){
+  virtual void explore(P& p, double elapsedTime)
+  {
     (void)p;
     (void)elapsedTime;
   }
 
 protected:
   std::default_random_engine engine;
-
 };
 
-}
+}  // namespace rhoban_unsorted

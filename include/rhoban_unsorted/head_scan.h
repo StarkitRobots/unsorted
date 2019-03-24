@@ -6,7 +6,6 @@
 
 namespace rhoban_unsorted
 {
-
 /// HeadScan types:
 /// For 2 rows
 /// ------>----->-----|
@@ -27,7 +26,7 @@ namespace rhoban_unsorted
 /// |                 |
 /// |-----<-----<------
 /// And so on...
-/// 
+///
 /// When the number of rows is odd, the trajectories at odd cycles are vertical
 /// mirrors of trajectories at even cycles
 class HeadScan
@@ -58,8 +57,8 @@ public:
   double getCycleDistance() const;
   double getCycleDuration() const;
 
-  const std::vector<double> & getPanTargets() const;
-  const std::vector<double> & getTiltTargets() const;
+  const std::vector<double>& getPanTargets() const;
+  const std::vector<double>& getTiltTargets() const;
 
   PanTilt getTarget(double time) const;
 
@@ -101,4 +100,4 @@ private:
   rhoban_utils::BangBang ctrl_law;
 };
 
-}
+}  // namespace rhoban_unsorted
