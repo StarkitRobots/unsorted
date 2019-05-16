@@ -3,13 +3,12 @@ project(rhoban_unsorted)
 
 find_package(catkin REQUIRED COMPONENTS
   rhoban_utils
-  model
 )
 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES rhoban_unsorted
-  CATKIN_DEPENDS rhoban_utils model
+  CATKIN_DEPENDS rhoban_utils
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS})
